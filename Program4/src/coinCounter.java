@@ -3,9 +3,6 @@
  * @author rtill
  */
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.PriorityQueue;
 
 public class coinCounter{
       public static void main(String[] args) {
@@ -25,26 +22,33 @@ public class coinCounter{
     
     public static int  makeChange(int[] currencyIn, int value, int[] minCoins, int[] coinUsed)
     {
-        for(int cents = 1; cents<value+1; cents++)
+        if(currencyIn.length == 0)
         {
-            int coinCount = cents;
-            int newCoin =1;
-            for(int j = 0; j <currencyIn.length ; j++)
+            throw new IllegalArgumentException("Array of size 0 is not allowed");
+        }
+        else
+        {
+            for(int cents = 1; cents<value+1; cents++)
             {
-                
-                if(currencyIn[j] <= cents)
+                int coinCount = cents;
+                int newCoin =1;
+                for(int j = 0; j <currencyIn.length ; j++)
                 {
-                    if(minCoins[cents-currencyIn[j]]+1 < coinCount)
+
+                    if(currencyIn[j] <= cents)
                     {
-                        coinCount = minCoins[cents-currencyIn[j]]+1;
-                        newCoin = currencyIn[j];
+                        if(minCoins[cents-currencyIn[j]]+1 < coinCount)
+                        {
+                            coinCount = minCoins[cents-currencyIn[j]]+1;
+                            newCoin = currencyIn[j];
+                        }
                     }
                 }
+                minCoins[cents] = coinCount;
+                coinUsed[cents] = newCoin;
             }
-            minCoins[cents] = coinCount;
-            coinUsed[cents] = newCoin;
-    }
-        return minCoins[value];
+            return minCoins[value];
+        }
     }
     
     public static void Print(int[] coinUsed,int value)

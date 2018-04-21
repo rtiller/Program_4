@@ -5,19 +5,9 @@
  */
 import org.junit.Test;
 import static org.junit.Assert.*;
-<<<<<<< HEAD
 
 
-=======
 
-<<<<<<< HEAD
-/**
- *
- * @author O'MalleyLaptop
- */
->>>>>>> Jakes
-=======
->>>>>>> Jakes
 public class coinCounterTest {
     
     @Test
@@ -34,7 +24,7 @@ public class coinCounterTest {
     @Test(expected = IllegalArgumentException.class)
     public void testEmptyArray() {
         System.out.println("Test 1");
-        int[] currency = {1,5,10,21,25};
+        int[] currency = {};
         int value = 63;
         int[] coinsUsed = new int[value+1];
         int[] coinsCount = new int[value+1];
@@ -53,22 +43,15 @@ public class coinCounterTest {
         int compare = 2;
         assertEquals(compare, coinCounter.makeChange(currency, value, coinsCount, coinsUsed));
     }
-    
-<<<<<<< HEAD
-}
-
-=======
     @Test
     public void testCase16() {
         System.out.println("Test 3");
         int[] currency = {1,5,10,25};
-        int value = 63;
+        int value = 16;
         int[] coinsUsed = new int[value+1];
         int[] coinsCount = new int[value+1];
         int compare = 3;
         assertEquals(compare, coinCounter.makeChange(currency, value, coinsCount, coinsUsed));
     }
-    
-    
 }
->>>>>>> Jakes
+
