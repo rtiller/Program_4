@@ -5,20 +5,7 @@
 
 
 public class coinCounter{
-      public static void main(String[] args) {
-        int value = 63;
-        int[] coins = {1,5,10,21,25};
-        int[] coinsUsed = new int[value+1];
-        int[] coinsCount = new int[value+1];
-        
-         System.out.print("Making change for " + value + " requires \n");
-         System.out.println( makeChange(coins, value, coinsCount, coinsUsed) + " coins");
-         System.out.print("They are, ");
-         Print(coinsUsed, value);
-         System.out.println("The used list is as follows");
-         printArray(coinsUsed);
-      }
-
+  
     
     public static int  makeChange(int[] currencyIn, int value, int[] minCoins, int[] coinUsed)
     {
