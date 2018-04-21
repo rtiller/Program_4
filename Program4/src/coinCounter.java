@@ -20,44 +20,11 @@ public class coinCounter{
          Print(coinsUsed, value);
          System.out.println("The used list is as follows");
          printArray(coinsUsed);
-         
-         
-        
-         
       }
 
     
-    
-    public static int[] coinCounter(int[] currencyIn, int value)
-    {
-        int[] currencyReturn = new int[4];
-        Arrays.sort(currencyIn);
-        ArrayUtils.reverse(currencyIn);
-            
-        if(currencyIn.length == 0)
-        {
-            throw new IllegalArgumentException("Array of size 0 is not allowed");
-        }
-        else
-        {
-            // System.out.print("The smallest count count to achieve " + value + " is the following coins: ");
-            for(int i=0; i<currencyIn.length; i++)
-             {
-                int x = currencyIn[i];
-                while(value >= x)
-                {
-                 value = value - x;
-                 currencyReturn[i]=x;
-                 // System.out.print(x + " ");
-                }
-            }   
-        }
-        return currencyReturn;
-    }
-    
     public static int  makeChange(int[] currencyIn, int value, int[] minCoins, int[] coinUsed)
     {
-      
         for(int cents = 1; cents<value+1; cents++)
         {
             int coinCount = cents;
